@@ -1,0 +1,24 @@
+# Nmap 7.93 scan initiated Wed Mar 11 19:19:01 2026 as: nmap -Pn -sV -r -T4 -d -oN Mscanrep_10.4.10.81.txt 10.4.10.81
+--------------- Timing report ---------------
+  hostgroups: min 1, max 100000
+  rtt-timeouts: init 500, min 100, max 1250
+  max-scan-delay: TCP 10, UDP 1000, SCTP 10
+  parallelism: min 0, max 0
+  max-retries: 6, host-timeout: 0
+  min-rate: 0, max-rate: 0
+---------------------------------------------
+Packet capture filter (device ens18): arp and arp[18:4] = 0xBC241136 and arp[22:2] = 0xD4B9
+Packet capture filter (device ens18): dst host 10.4.10.41 and (icmp or icmp6 or ((tcp) and (src host 10.4.10.81)))
+Nmap scan report for 10.4.10.81
+Host is up, received arp-response (0.00015s latency).
+Scanned at 2026-03-11 19:19:02 EDT for 11s
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE REASON         VERSION
+21/tcp open  ftp     syn-ack ttl 64 vsftpd 2.0.8 or later
+22/tcp open  ssh     syn-ack ttl 64 OpenSSH 8.9p1 Ubuntu 3ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+MAC Address: BC:24:11:4A:DF:D4 (Unknown)
+Service Info: Host: Welcome; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read from /usr/bin/../share/nmap: nmap-mac-prefixes nmap-service-probes nmap-services.
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Mar 11 19:19:13 2026 -- 1 IP address (1 host up) scanned in 11.61 seconds

@@ -1,0 +1,83 @@
+# Nmap 7.93 scan initiated Wed Mar 11 19:36:50 2026 as: nmap -Pn -sV -p- --script vuln -r -T4 -d -oN Dscanrep_10.4.10.71.txt 10.4.10.71
+--------------- Timing report ---------------
+  hostgroups: min 1, max 100000
+  rtt-timeouts: init 500, min 100, max 1250
+  max-scan-delay: TCP 10, UDP 1000, SCTP 10
+  parallelism: min 0, max 0
+  max-retries: 6, host-timeout: 0
+  min-rate: 0, max-rate: 0
+---------------------------------------------
+Packet capture filter (device ens18): arp and arp[18:4] = 0xBC241136 and arp[22:2] = 0xD4B9
+Packet capture filter (device ens18): dst host 10.4.10.41 and (icmp or icmp6 or ((tcp) and (src host 10.4.10.71)))
+Nmap scan report for 10.4.10.71
+Host is up, received arp-response (0.00039s latency).
+Scanned at 2026-03-11 19:37:00 EDT for 218s
+Not shown: 65517 closed tcp ports (reset)
+PORT      STATE SERVICE       REASON          VERSION
+53/tcp    open  domain        syn-ack ttl 128 Simple DNS Plus
+| dns-update: 
+|_  ERROR: Missing required script args: dns-update.hostname and dns-update.ip
+135/tcp   open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+139/tcp   open  netbios-ssn   syn-ack ttl 128 Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds? syn-ack ttl 128
+3389/tcp  open  ms-wbt-server syn-ack ttl 128 Microsoft Terminal Services
+| http-vuln-cve2014-2129: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2128: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2126: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2127: 
+|_  ERROR: Failed to connect to SSL VPN server
+5985/tcp  open  http          syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-iis-webdav-vuln: 
+|_  ERROR: This web server is not supported.
+5986/tcp  open  ssl/http      syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+| http-vuln-cve2014-2126: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2129: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2128: 
+|_  ERROR: Failed to connect to SSL VPN server
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-iis-webdav-vuln: 
+|_  ERROR: This web server is not supported.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+| http-vuln-cve2014-2127: 
+|_  ERROR: Failed to connect to SSL VPN server
+47001/tcp open  http          syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+| http-iis-webdav-vuln: 
+|_  ERROR: This web server is not supported.
+49664/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49665/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49666/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49668/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49669/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49670/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49686/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49698/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+64572/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+64573/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+MAC Address: BC:24:11:59:96:77 (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+| smb-vuln-cve-2017-7494: 
+|_  ERROR: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+
+Read from /usr/bin/../share/nmap: nmap-mac-prefixes nmap-service-probes nmap-services.
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Mar 11 19:40:38 2026 -- 1 IP address (1 host up) scanned in 228.23 seconds

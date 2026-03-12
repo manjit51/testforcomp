@@ -1,0 +1,79 @@
+# Nmap 7.93 scan initiated Wed Mar 11 19:32:12 2026 as: nmap -Pn -sV -p- --script vuln -r -T4 -d -oN Dscanrep_10.4.10.51.txt 10.4.10.51
+--------------- Timing report ---------------
+  hostgroups: min 1, max 100000
+  rtt-timeouts: init 500, min 100, max 1250
+  max-scan-delay: TCP 10, UDP 1000, SCTP 10
+  parallelism: min 0, max 0
+  max-retries: 6, host-timeout: 0
+  min-rate: 0, max-rate: 0
+---------------------------------------------
+Packet capture filter (device ens18): arp and arp[18:4] = 0xBC241136 and arp[22:2] = 0xD4B9
+Packet capture filter (device ens18): dst host 10.4.10.41 and (icmp or icmp6 or ((tcp) and (src host 10.4.10.51)))
+Nmap scan report for 10.4.10.51
+Host is up, received arp-response (0.00029s latency).
+Scanned at 2026-03-11 19:32:23 EDT for 224s
+Not shown: 65519 closed tcp ports (reset)
+PORT      STATE SERVICE       REASON          VERSION
+135/tcp   open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+139/tcp   open  netbios-ssn   syn-ack ttl 128 Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds? syn-ack ttl 128
+3389/tcp  open  ms-wbt-server syn-ack ttl 128 Microsoft Terminal Services
+| http-vuln-cve2014-2129: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2126: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2128: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2127: 
+|_  ERROR: Failed to connect to SSL VPN server
+5985/tcp  open  http          syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+| http-iis-webdav-vuln: 
+|_  ERROR: This web server is not supported.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+5986/tcp  open  ssl/http      syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-iis-webdav-vuln: 
+|_  ERROR: This web server is not supported.
+| http-vuln-cve2014-2127: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2126: 
+|_  ERROR: Failed to connect to SSL VPN server
+| http-vuln-cve2014-2129: 
+|_  ERROR: Failed to connect to SSL VPN server
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+| http-vuln-cve2014-2128: 
+|_  ERROR: Failed to connect to SSL VPN server
+47001/tcp open  http          syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+| http-iis-webdav-vuln: 
+|_  ERROR: This web server is not supported.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49288/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49664/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49665/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49666/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49668/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49669/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49670/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49688/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+49703/tcp open  msrpc         syn-ack ttl 128 Microsoft Windows RPC
+MAC Address: BC:24:11:84:85:8F (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+| smb-vuln-cve-2017-7494: 
+|_  ERROR: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+
+Read from /usr/bin/../share/nmap: nmap-mac-prefixes nmap-service-probes nmap-services.
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Mar 11 19:36:07 2026 -- 1 IP address (1 host up) scanned in 235.26 seconds
